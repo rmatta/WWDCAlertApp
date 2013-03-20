@@ -6,7 +6,7 @@ It refreshes every 2 mins and caches the last fetched content of [WWDC page](htt
 
 The app also generates a UILocalNotification, if the app is killed or there was an error fetching the latest [WWDC page](https://developer.apple.com/wwdc/).
 
-Here's my [Blog post](http://rmatta.com/day/2013/03/20) on the App.
+Here's my [blog post](http://rmatta.com/post/45835633260/wwdc-alert-app) on the App.
 
 #### How does it run in background?
 
