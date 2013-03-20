@@ -1,3 +1,5 @@
+## WWDC Alert App
+
 This is a simple app that will generate a local notification every time [WWDC page](https://developer.apple.com/wwdc/) updates.
 
 It refreshes every 2 mins and caches the last fetched content of [WWDC page](https://developer.apple.com/wwdc/). If the most recent content is not exactly same as previously cached copy (using `[NSString isEqualToString]`), it will trigger a UILocalNotification. 
