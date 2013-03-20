@@ -46,7 +46,6 @@
     self.dateLabel.text = @"";
     self.url = [NSURL URLWithString:@"https://developer.apple.com/wwdc/"];
     //    self.url = [NSURL URLWithString:@"http://techcrunch.com"]; //for testing
-
     
     self.lastFetchedWebPage = [[NSUserDefaults standardUserDefaults] objectForKey:kCacheKey];
     self.lastAccessedDate = [[NSUserDefaults standardUserDefaults] objectForKey:kLastAccessDate];
@@ -54,6 +53,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    [self startUpdatingLocation]; //just to get the location permissions out of the way
     [self refresh];
 }
 
@@ -139,11 +139,6 @@
 
 - (void)startUpdatingLocation {
     [self.locationManager startUpdatingLocation];
-    double delayInSeconds = 5.0;
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-    dispatch_after(popTime, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void) {
-        [self stopUpdatingLocation];
-    });
 }
 
 - (void)stopUpdatingLocation {
@@ -152,6 +147,11 @@
     }
     NSLog(@"Stopping location update");
     [self.locationManager stopUpdatingLocation];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+    NSLog(@"Latest location is %@", locations[0]);
+    [self stopUpdatingLocation];
 }
 
 - (void)stopBackgrounding {
@@ -187,21 +187,19 @@
                 
                 NSLog(@"App's remaining bg time is %f +60s", cushionedSleepTime);
                 
-                cushionedSleepTime = lround(cushionedSleepTime);
-                
                 if (cushionedSleepTime > kRefreshRate) {
                     cushionedSleepTime = kRefreshRate; //wake up every 2 mins to refresh
                 }
+                
+                cushionedSleepTime = lround(cushionedSleepTime);
                 
                 NSLog(@"Will sleep for %fs", cushionedSleepTime);
                 
                 if (cushionedSleepTime > 0) {
                     sleep(cushionedSleepTime);
                 } else {
-                    NSLog(@"bg lease about to expure in <60s; refreshing location to renew it...");
+                    NSLog(@"bg lease to expire in <60s; refreshing location to renew it...");
                     [self startUpdatingLocation];
-                    sleep(1); //sleep for a second and stop location updates
-                    [self stopUpdatingLocation];
                 }
                 
             }
