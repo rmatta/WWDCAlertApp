@@ -4,7 +4,7 @@ It refreshes every 2 mins and caches the last fetched content of [WWDC page](htt
 
 The app also generates a UILocalNotification, if the app is killed.
 
-<h3>How does it run in background?</h3>
+<h5>How does it run in background?</h5>
 
 The app registers for background mode to receive location updates. Every time it is backgrounded, it kicks off a background task that wakes up every 2 mins to refresh the [WWDC page](https://developer.apple.com/wwdc/). If the app is running out of background time allotted to it, it triggers location update on CLLocationManager, which allows for a reset (bumps up) allotted background time to the app.
 
