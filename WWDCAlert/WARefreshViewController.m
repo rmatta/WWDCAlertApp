@@ -57,6 +57,10 @@
     [self refresh];
 }
 
+-(void)viewWillLayoutSubviews {
+    self.activityView.center = self.webView.center;
+}
+
 - (IBAction)refresh {
     NSLog(@"Refreshing...");
 
