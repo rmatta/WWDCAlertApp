@@ -8,9 +8,9 @@
 			<key>DefaultValue</key>
 			<true/>
 			<key>Key</key>
-			<string>alert_on_page_load_errors</string>
+			<string>notify_on_page_load_errors</string>
 			<key>Title</key>
-			<string>Alert on Errors</string>
+			<string>Notify on Errors</string>
 			<key>Type</key>
 			<string>PSToggleSwitchSpecifier</string>
 		</dict>

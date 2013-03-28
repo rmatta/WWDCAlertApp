@@ -108,11 +108,7 @@
 
 - (void)handleFailureToLoadPage:(NSError *)error {
     self.activityView.hidden = YES;
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"alert_on_page_load_errors"]) {
-        [self alert:YES];
-    } else {
-        NSLog(@"Ignoring error per settings");
-    }
+    [self alert:YES];
 }
 
 - (void)alert:(BOOL)forErrorToLoad {
@@ -136,6 +132,10 @@
 }
 
 - (void)notify:(NSString *)msg {
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"notify_on_page_load_errors"]) {
+        NSLog(@"Ignoring error per settings");
+        return;
+    }
     UILocalNotification *notification = [UILocalNotification new];
     notification.alertBody = msg;
     notification.alertAction = @"OK";
