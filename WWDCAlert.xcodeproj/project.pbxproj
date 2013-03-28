@@ -27,6 +27,7 @@
 		28756DD016F9589A00848956 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28756DCB16F9589A00848956 /* Icon-Small@2x.png */; };
 		28756DD116F9589A00848956 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 28756DCC16F9589A00848956 /* Icon.png */; };
 		28756DD216F9589A00848956 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28756DCD16F9589A00848956 /* Icon@2x.png */; };
+		28F65E361704B25C003664C0 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 28F65E351704B25C003664C0 /* Settings.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,7 @@
 		28756DCB16F9589A00848956 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small@2x.png"; path = "WWDCAlert/Icon-Small@2x.png"; sourceTree = "<group>"; };
 		28756DCC16F9589A00848956 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = WWDCAlert/Icon.png; sourceTree = "<group>"; };
 		28756DCD16F9589A00848956 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "WWDCAlert/Icon@2x.png"; sourceTree = "<group>"; };
+		28F65E351704B25C003664C0 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		9B87412D8D354E02A602D91D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -79,6 +81,7 @@
 		28756D8E16F92C9300848956 = {
 			isa = PBXGroup;
 			children = (
+				28F65E351704B25C003664C0 /* Settings.bundle */,
 				28756DC916F9589A00848956 /* Icon-Small-50.png */,
 				28756DCA16F9589A00848956 /* Icon-Small.png */,
 				28756DCB16F9589A00848956 /* Icon-Small@2x.png */,
@@ -203,6 +206,7 @@
 				28756DD016F9589A00848956 /* Icon-Small@2x.png in Resources */,
 				28756DD116F9589A00848956 /* Icon.png in Resources */,
 				28756DD216F9589A00848956 /* Icon@2x.png in Resources */,
+				28F65E361704B25C003664C0 /* Settings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

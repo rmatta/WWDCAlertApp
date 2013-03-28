@@ -108,7 +108,11 @@
 
 - (void)handleFailureToLoadPage:(NSError *)error {
     self.activityView.hidden = YES;
-    [self alert:YES];
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"alert_on_page_load_errors"]) {
+        [self alert:YES];
+    } else {
+        NSLog(@"Ignoring error per settings");
+    }
 }
 
 - (void)alert:(BOOL)forErrorToLoad {
