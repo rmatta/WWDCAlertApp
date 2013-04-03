@@ -10,6 +10,8 @@ The app also generates a UILocalNotification, if the app is killed or there was 
 
 Here's my [blog post](http://rmatta.com/post/45835633260/wwdc-alert-app) on the App.
 
+_Note: The app stops refreshing every 2 minutes when it is foregrounded. So if you leave the app open and running and the device is not locked, it will NOT auto-refresh._
+
 #### Build Instructions
 
 This app uses [Cocoapods](http://www.cocoapods.org). If you haven't used it before, one of the key things to make sure is that you build from `WWDCAlert.xcworkspace` and not `WWDCAlert.xcodeproj`. In other words, do NOT open `WWDCAlert.xcodeproj` in Xcode; instead, use `WWDCAlert.xcworkspace` and build WWDCAlert target to run on a device.
