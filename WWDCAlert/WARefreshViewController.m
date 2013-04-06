@@ -119,6 +119,10 @@
     if ([UIApplication sharedApplication].applicationState == UIApplicationStateActive) {
         [self showAlert:msg];
     } else {
+        if (forErrorToLoad && ![[NSUserDefaults standardUserDefaults] boolForKey:@"notify_on_page_load_errors"]) {
+            NSLog(@"Ignoring error per settings");
+            return;
+        }
         [self notify:msg];
     }
 }
@@ -132,10 +136,6 @@
 }
 
 - (void)notify:(NSString *)msg {
-    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"notify_on_page_load_errors"]) {
-        NSLog(@"Ignoring error per settings");
-        return;
-    }
     UILocalNotification *notification = [UILocalNotification new];
     notification.alertBody = msg;
     notification.alertAction = @"OK";
