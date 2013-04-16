@@ -1,5 +1,9 @@
 ## WWDC Alert App
 
+<a href="https://www.cisimple.com/jobs/fawr2qli0apyxxndy"><img src='https://www.cisimple.com/jobs/fawr2qli0apyxxndy/build_status.png'/></a>
+
+Continuous Integration provided by [cisimple](https://www.cisimple.com).
+
 #### What is it?
 
 This is a simple app that will generate a local notification every time [WWDC page](https://developer.apple.com/wwdc/) updates.
